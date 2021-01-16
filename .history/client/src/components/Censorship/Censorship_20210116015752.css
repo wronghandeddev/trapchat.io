@@ -1,0 +1,13 @@
+ul {
+	margin-left: 30%;
+ }
+.outerContainer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	background-color: #1A1A1D;
+}
+ .title1 {
+
+ }

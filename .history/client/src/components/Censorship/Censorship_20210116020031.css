@@ -1,0 +1,21 @@
+ul {
+	margin-left: 30%;
+ }
+.outerContainer1 {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	background-color: #1A1A1D;
+}
+.container1{
+		display:
+		width: 100%;
+		letter-spacing: 0;
+		float: left;
+		font-size: 1.1em;
+		word-wrap: break-word;
+}
+ .title1 {
+
+ }
