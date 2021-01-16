@@ -1,25 +1,13 @@
 
-
-// Serve up static assets (usually
-//
-// Send every request to the React app
-// Define any API routes before this runs
-app.get("*", function(req, res) {
- res.sendFile(path.join(__dirname, "./client/build/index.html"));
-});
-//
-app.listen(PORT, function() {
- console.log(`🌎 ==> API server now on port ${PORT}!`);
-});
-
-
+const expressSession = require("express-session");
 const { addUser, removeUser, getUser, getUsersInRoom } = require("./users");
-
+const expressVisitorCounter = require("express-visitor-counter");
 const router = require("./router");
-
+const express = require('express');
+const http = require('http');
 const app = express();
 const server = http.createServer(app);
-const io = socketio(server);
+const socketio = socketio(server);
 app.use(helmet());
 app.use(cors());
 app.use(router);
@@ -75,7 +63,23 @@ joined!`,
     }
   });
 });
+const counters = {};
 
-server.listen(process.env.PORT || 5000, () =>
-  console.log(`Server has started.`)
-);
+(async () => {
+	const app = express();
+	app.get("*", function (req, res) {
+		res.sendFile(path.join(__dirname, "./client/build/index.html"));
+	});
+	app.enable('trust proxy');
+	app.use(expressSession({ secret: 'secret', resave: false, saveUninitialized: true }));
+	app.use(expressVisitorCounter({ hook: counterId => counters[counterId] = (counters[counterId] || 0) + 1 }));
+	app.get('/', (req, res, next) => res.json(counters));
+	app.listen(PORT, function () {
+		console.log(`🌎 ==> API server now on port ${PORT}!`);
+	});
+
+	server.listen(process.env.PORT || 5000, () =>
+		console.log(`Server has started.`)
+	);
+
+});

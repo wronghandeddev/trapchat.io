@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "if-env NODE_ENV=production && run start:prod || npm run start:dev",
     "start:prod": "node server.js",
-    "start:dev": "concurrently \"nodemon --client/*'\" \"npm run client\"",
+    "start:dev": "concurrently  \"npm start\"nodemon --client/*'\" \"npm run client\"",
     "client": "cd client && npm run start",
     "seed": "node scripts/seedDB.js",
     "install": "cd client && npm install",
@@ -27,7 +27,6 @@
     "nodemon": "^2.0.7",
     "pm2": "^4.5.1",
     "raygun4js": "^2.21.0",
-    "socket.io": "^3.1.0",
     "spawn-command": "^0.0.2-1",
     "utf-8-validate": "^5.0.4",
     "ws": "^7.2.5"
