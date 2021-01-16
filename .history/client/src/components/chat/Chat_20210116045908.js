@@ -7,7 +7,7 @@ import TextContainer from "../TextContainer/TextContainer";
 import Messages from "../Messages/Messages";
 import InfoBar from "../InfoBar/InfoBar";
 import Input from "../Input/Input";
-import sideBarJoin from "../sideBarJoin/sideBarJoin";
+import sideBarJoin 
 import "./Chat.css";
 
 let socket;
@@ -69,8 +69,7 @@ const Chat = ({ location }) => {
           setMessage={setMessage}
           sendMessage={sendMessage}
         />
-			</div>
-			<sideBarJoin />
+      </div>
       <TextContainer users={users} />
     </div>
   );

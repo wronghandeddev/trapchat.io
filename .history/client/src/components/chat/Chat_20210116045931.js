@@ -69,8 +69,7 @@ const Chat = ({ location }) => {
           setMessage={setMessage}
           sendMessage={sendMessage}
         />
-			</div>
-			<sideBarJoin />
+      </div>
       <TextContainer users={users} />
     </div>
   );

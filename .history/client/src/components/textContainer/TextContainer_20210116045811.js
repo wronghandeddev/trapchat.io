@@ -1,7 +1,7 @@
 import React from "react";
 
 import onlineIcon from "../../icons/onlineIcon.png";
-
+import sideBarJoin from "./si"
 import logo from "../../icons/logo.png";
 import "./TextContainer.css";
 
@@ -13,7 +13,7 @@ const TextContainer = ({ users }) => (
 
       </h1>
       <h2 className="text2">
-        Created by and for People who care about privacy.
+        Created by and for People whoi care about privacy.
       </h2>
     </div>
     {users ? (

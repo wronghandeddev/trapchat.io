@@ -17,6 +17,7 @@ const Join = () => {
         <h5 className="missionStatement">
          A Censorship Minded Chat service, no logging, no signin, just know the room
           and the user your supposed to be talking to.
+					
         </h5>
         <div>
           <input

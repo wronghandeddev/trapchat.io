@@ -1,19 +1,14 @@
 import React from "react";
 
-import onlineIcon from "../../icons/onlineIcon.png";
 
-import logo from "../../icons/logo.png";
-import "./TextContainer.css";
+import "./sideBarJoin.css";
 
 const TextContainer = ({ users }) => (
-  <div className="textContainer">
+  <div className="SideBarContainer">
     <div>
-      <h1 className="text1">
-        TrapChat.io
-
-      </h1>
+      <h1 className="text1">Usage:</h1>
       <h2 className="text2">
-        Created by and for People who care about privacy.
+        
       </h2>
     </div>
     {users ? (

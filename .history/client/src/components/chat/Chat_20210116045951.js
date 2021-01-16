@@ -70,7 +70,7 @@ const Chat = ({ location }) => {
           sendMessage={sendMessage}
         />
 			</div>
-			<sideBarJoin />
+			<Si
       <TextContainer users={users} />
     </div>
   );
