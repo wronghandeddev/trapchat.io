@@ -1,0 +1,19 @@
+{
+  "name": "trapchat.io-1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"start": "concurrently \" cd server &&  nodemon dev\" \"cd - \" cd client\" npm run start\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^5.3.0",
+    "nodemon": "^2.0.7",
+    "pm2": "^4.5.1",
+    "spawn-command": "^0.0.2-1"
+  }
+}

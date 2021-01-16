@@ -1,0 +1,28 @@
+{
+  "name": "trapchat.io-1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+		"start": "if-env NODE_ENV=production && run start:prod || npm run start:dev",
+"start:prod": "node server.js",
+"start:dev": "concurrently \"nodemon --
+'client/*'\" \"npm run client\"",
+"client": "cd client && npm run start",
+"seed": "node scripts/seedDB.js",
+"install": "cd client && npm install",
+"build": "cd client && npm run build",
+"heroku-postbuild": "npm run build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^5.3.0",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.7",
+    "pm2": "^4.5.1",
+    "spawn-command": "^0.0.2-1"
+  }
+}

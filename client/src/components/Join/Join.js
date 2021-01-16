@@ -11,7 +11,7 @@ const Join = () => {
     <div className="joinOuterContainer">
       <div className="joinInnerContainer">
         <h1 className="heading">
-          TrapChat.io
+					TrapChat.io
           <logo />
         </h1>
         <h5 className="missionStatement">
@@ -39,11 +39,12 @@ const Join = () => {
           to={`/chat?name=${name}&room=${room}`}
         >
           <button className={"button mt-20"} type="submit">
-            Sign In
+            Start Chatting
           </button>
         </Link>
-      </div>
-    </div>
+			</div>
+			</div>
+    
   );
 };
 
