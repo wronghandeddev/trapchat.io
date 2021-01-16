@@ -1,9 +1,25 @@
-const client = require('./client');
-const server = require('./server');
-const nodemon = require('nodemon');
-const pm2 =require('pm2');
-const concurrently = require('concurrently');
-const spawn = require('spawn-command');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 const http = require("http");
 const socketio = require("socket.io");
@@ -13,28 +29,10 @@ const express = require("express");
 const path = require("path");
 const PORT = process.env.PORT || 3001;
 const app = express();
-
-// Serve up static assets (usually on heroku)
-if (process.env.NODE_ENV === "production") {
-app.use(express.static("client/build"));
-}
-
-// Send every request to the React app
-// Define any API routes before this runs
-app.get("*", function(req, res) {
-  res.sendFile(path.join(__dirname, "./client/build/index.html"));
-});
-
-app.listen(PORT, function() {
-  console.log(`🌎 ==> API server now on port ${PORT}!`);
-});
-
-
 const { addUser, removeUser, getUser, getUsersInRoom } = require("./users");
 
 const router = require("./router");
 
-const app = express();
 const server = http.createServer(app);
 const io = socketio(server);
 app.use(helmet());
@@ -94,3 +92,31 @@ joined!`,
 server.listen(process.env.PORT || 5000, () =>
   console.log(`Server has started.`)
 );
+
+//
+//
+//
+//Serve up static assets (usually on heroku)
+if (process.env.NODE_ENV === "production") {
+app.use(express.static("client/build"));
+}
+
+//Send every request to the React app
+//Define any API routes before this runs
+app.get("*", function(req, res) {
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+});
+
+app.listen(PORT, function() {
+  console.log(`🌎 ==> API server now on port ${PORT}!`);
+});
+//
+const PORT = process.env.PORT || 3001;
+const INDEX = "/index.html";
+
+const server = express()
+  .use((req, res) => res.sendFile(INDEX, { root: __dirname }))
+  .listen(PORT, () => console.log(`Listening on ${PORT}`));
+const { Server } = require("ws");
+
+const wss = new Server({ server });
