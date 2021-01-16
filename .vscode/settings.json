@@ -1,3 +1,9 @@
 {
-    "json.maxItemsComputed": 5000000
+    "json.maxItemsComputed": 5000000,
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+    },
+    "explorerExclude.backup": null
 }
