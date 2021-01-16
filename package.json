@@ -24,6 +24,7 @@
     "express": "^4.17.1",
     "nodemon": "^2.0.7",
     "pm2": "^4.5.1",
+    "raygun4js": "^2.21.0",
     "spawn-command": "^0.0.2-1",
     "utf-8-validate": "^5.0.4",
     "ws": "^7.2.5"
