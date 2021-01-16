@@ -34,7 +34,7 @@ const io = socketio(server);
 app.use(helmet());
 app.use(cors());
 app.use(router);
-if(process.env.NODE_ENV === "production") {
+f(process.env.NODE_ENV === "production") {
 	app.use(express.static("client/build"));
 }
 io.on("connect", (socket) => {

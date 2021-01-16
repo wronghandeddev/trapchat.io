@@ -9,34 +9,25 @@
 
 
 
-// Serve up static assets (usually on heroku)
 
-
-//
-// Send every request to the React app
-// Define any API routes before this runs
-// app.get("*", function(req, res) {
-//   res.sendFile(path.join(__dirname, "./client/build/index.html"));
-// });
-//
-// app.listen(PORT, function() {
-//   console.log(`🌎 ==> API server now on port ${PORT}!`);
-// });
-//
-
+const http = require("http");
+const socketio = require("socket.io");
+const cors = require("cors");
+const helmet = require("helmet");
+const express = require("express");
+const path = require("path");
+const PORT = process.env.PORT || 3001;
+const app = express();
 const { addUser, removeUser, getUser, getUsersInRoom } = require("./users");
 
 const router = require("./router");
 
-const app = express();
 const server = http.createServer(app);
 const io = socketio(server);
 app.use(helmet());
 app.use(cors());
 app.use(router);
-if(process.env.NODE_ENV === "production") {
-	app.use(express.static("client/build"));
-}
+
 io.on("connect", (socket) => {
   socket.on("join", ({ name, room }, callback) => {
     const { error, user } = addUser({ id: socket.id, name, room });
@@ -90,3 +81,32 @@ joined!`,
 server.listen(process.env.PORT || 5000, () =>
   console.log(`Server has started.`)
 );
+
+//
+//
+//
+//Serve up static assets (usually on heroku)
+if (process.env.NODE_ENV === "production") {
+app.use(express.static("client/build"));
+}
+
+//Send every request to the React app
+//Define any API routes before this runs
+app.get("*", function(req, res) {
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+});
+
+app.listen(PORT, function() {
+  console.log(`🌎 ==> API server now on port ${PORT}!`);
+});
+//
+const PORT = process.env.PORT || 3001;
+const INDEX = "/index.html";
+
+const server = express()
+const PORT = process.env.PORT || 3000;
+const INDEX = "/index.html";
+
+const server = express()
+  .use((req, res) => res.sendFile(INDEX, { root: __dirname }))
+  .listen(PORT, () => console.log(`Listening on ${PORT}`));
